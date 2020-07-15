@@ -1,13 +1,12 @@
-jobs: 8
+jobs: {{cookiecutter.cores}}
 verbose: {{cookiecutter.verbose}}
 use-singularity: {{cookiecutter.use_singularity}}
 use-envmodules: {{cookiecutter.use_envmodules}}
 singularity-args: '\-e'
-default-resources: "mem_mb={{cookiecutter.default_mem_mb}}" #this is for ensuring grouped-jobs have enough memory (ie. sum of memory request)
-local-cores: 8
-singularity-prefix: '/project/ctb-akhanf/akhanf/singularity/snakemake_containers'
+local-cores: {{cookiecutter.cores}}
+singularity-prefix: {{cookiecutter.singularity_prefix}}
 notebook-listen: '$(hostname -f):8888'
 rerun-incomplete: True
 keep-going: True
 show-failed-logs: True
-resources: 'gpus=1'
+resources: {{cookiecutter.resources}}
